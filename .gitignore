@@ -1,0 +1,15 @@
+*~
+.#*
+/.emacs.*
+/places
+/tramp
+/url/
+/eln-cache/
+/org-persist/
+/transient/
+/auto-save-list/
+/elpa/
+.github/
+\#*#
+*.elc
+*.signed

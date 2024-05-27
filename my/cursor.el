@@ -11,3 +11,15 @@
     (t 
       (set-cursor-color my/normal-cursor-color))))
 (add-hook 'post-command-hook 'my/set-cursor-color-according-to-mode)
+
+(defun my/last-mark ()
+  "goto 'previous' mark"
+  (interactive)
+  (setq mark-active 'nil)
+  (set-mark-command -1))
+
+(defun my/next-mark ()
+  "goto 'next' mark"
+  (interactive)
+  (setq mark-active 'nil)
+  (set-mark-command 1))

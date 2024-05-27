@@ -5,6 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(cua-mode t)
+ '(delete-selection-mode t)
  '(desktop-save-mode t)
  '(diff-switches "-u")
  '(display-fill-column-indicator nil)
@@ -15,6 +16,7 @@
  '(global-display-line-numbers-mode t)
  '(global-hl-line-mode t)
  '(global-tab-line-mode t)
+ '(highlight-nonselected-windows nil)
  '(ibuffer-always-show-last-buffer :nomini)
  '(ibuffer-default-shrink-to-minimum-size nil)
  '(ibuffer-default-sorting-mode 'major-mode)
@@ -28,6 +30,7 @@
  '(imenu-sort-function 'imenu--sort-by-name)
  '(indicate-empty-lines t)
  '(inhibit-startup-screen t)
+ '(mouse-yank-at-point nil)
  '(org-agenda-files "agenda_files")
  '(org-directory "/home/org")
  '(org-log-done 'note)
@@ -54,6 +57,7 @@
  '(tab-line-tab-name-truncated-max 32)
  '(tab-line-tabs-function 'tab-line-tabs-window-buffers)
  '(tool-bar-mode nil)
+ '(transient-mark-mode t)
  '(x-stretch-cursor t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

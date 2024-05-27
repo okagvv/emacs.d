@@ -1,5 +1,7 @@
 (global-set-key [C-tab] 'hippie-expand)
 (global-set-key [backtab] 'comint-dynamic-complete-filename)
+(global-set-key [C-up]    'my/last-mark)
+(global-set-key [C-down]  'my/next-mark)
 
 (defvar MyMap1 nil "function keys with prefix [menu]")
 (setq   MyMap1 (make-keymap))
@@ -19,6 +21,7 @@
 (define-key MyMap1 "g" 'goto-line)
 (define-key MyMap1 "l" 'linum-mode)
 (define-key MyMap1 "m" 'magit-status)
+(define-key MyMap1 "s" 'multi-occur-in-this-mode)
 (define-key MyMap1 "x" 'switch-to-next-buffer)
 
 (define-key MyMap1 "t" 'transpose-windows)
@@ -58,7 +61,7 @@
 (global-set-key    [kp-delete]     'kill-word)
 (define-key MyMap1 [kp-delete]     'kill-whole-line)
 ;;(define-key MyMap1 [kp-subtract]   'match-paren)
-;;(global-set-key       [kp-enter]      'framepop-toggle-frame)
+;;(global-set-key    [kp-enter]      'framepop-toggle-frame)
 (define-key MyMap1 [kp-enter]      'newline-and-indent)
 ;;(define-key MyMap2 [kp-enter]      'message-elide-region)
 ;;(define-key MyMap3 [kp-enter]      'insert-cut-here)
@@ -81,8 +84,6 @@
 
 (global-set-key       [C-M-kp-enter]  'bury-buffer)
 
-(setq mouse-yank-at-point nil)
-
 (global-set-key [S-down-mouse-1] 'imenu)
 (global-set-key [S-down-mouse-2] 'yank-menu)
 (global-set-key [S-down-mouse-3] 'ffap-at-mouse)
@@ -98,7 +99,6 @@
 (global-set-key    [M-kp-2] 'symbol-overlay-put)
 (global-set-key    [M-kp-3] 'symbol-overlay-jump-next)
 (global-set-key    [M-kp-1] 'symbol-overlay-jump-prev)
-(define-key MyMap1 "o" 'symbol-overlay-mode)
-(define-key MyMap2 "o" 'symbol-overlay-remove-all)
+(define-key MyMap1 "o"      'symbol-overlay-mode)
+(define-key MyMap2 "o"      'symbol-overlay-remove-all)
 
-(define-key MyMap1 "m" 'multi-occur-in-this-mode)

@@ -1,7 +1,9 @@
-(global-set-key [C-tab] 'hippie-expand)
 (global-set-key [backtab] 'comint-dynamic-complete-filename)
 (global-set-key [C-up]    'my/last-mark)
 (global-set-key [C-down]  'my/next-mark)
+
+(global-set-key "\C-f"    'kill-word)
+(global-set-key "\C-b"    'backward-kill-word)
 
 (defvar MyMap1 nil "function keys with prefix [menu]")
 (setq   MyMap1 (make-keymap))
@@ -19,20 +21,27 @@
 (define-key MyMap3 " " 'delete-blank-lines)
 
 (define-key MyMap1 "g" 'goto-line)
+
+;;(define-key MyMap1 "h" 'highlight-regexp-current-word)
+;;(define-key MyMap2 "h" 'highlight-regexp-clear)
+
 (define-key MyMap1 "l" 'linum-mode)
+
 (define-key MyMap1 "m" 'magit-status)
+(define-key MyMap2 "m" 'magit-blame)
+(define-key MyMap3 "m" 'magit-show-commit)
+
 (define-key MyMap1 "s" 'multi-occur-in-this-mode)
+
 (define-key MyMap1 "x" 'switch-to-next-buffer)
 
 (define-key MyMap1 "t" 'transpose-windows)
 (define-key MyMap2 "t" 'transpose-words)
 (define-key MyMap3 "t" 'transpose-lines)
 
-;;(define-key MyMap1 "h" 'highlight-regexp-current-word)
-;;(define-key MyMap2 "h" 'highlight-regexp-clear)
+(global-set-key    [f1] 'undo)
 
-(global-set-key       [f1] 'undo)
-(global-set-key       [f2] 'fill-region-as-paragraph)
+(global-set-key    [f2] 'fill-region-as-paragraph)
 
 (global-set-key    [f3] 'bookmark-jump)
 (define-key MyMap1 [f3] 'bookmark-set)
@@ -47,42 +56,56 @@
 (define-key MyMap2 [f6] 'isearch-forward)
 (define-key MyMap3 [f6] 'isearch-backward)
 
+(global-set-key    [f8] 'toggle-input-method)
+
 (global-set-key    [f9] 'find-file)
 
 (global-set-key    [f10] 'bs-show)
+(define-key MyMap1 [f10] 'balance-windows)
+(define-key MyMap2 [f10] 'kill-buffer)
 
 ;; F11 bindings create conflicts in Citrix sessions using HTML5 client!
 
-(global-set-key    [f12] 'save-buffer)
+(global-set-key    [f12]          'save-buffer)
 
-(define-key MyMap1 [insert] 'yank)
-;;(define-key MyMap2 [insert] 'copy-current-line)
+(define-key MyMap1 [insert]       'yank)
+;;(define-key MyMap2  [insert] 'copy-current-line)
 
-(global-set-key    [kp-delete]     'kill-word)
-(define-key MyMap1 [kp-delete]     'kill-whole-line)
-;;(define-key MyMap1 [kp-subtract]   'match-paren)
-;;(global-set-key    [kp-enter]      'framepop-toggle-frame)
-(define-key MyMap1 [kp-enter]      'newline-and-indent)
-;;(define-key MyMap2 [kp-enter]      'message-elide-region)
-;;(define-key MyMap3 [kp-enter]      'insert-cut-here)
-;;(define-key MyMap1 [kp-add]        'ipause)
+(global-set-key    [kp-delete]    'kill-word)
+(define-key MyMap1 [kp-delete]    'kill-whole-line)
+(define-key MyMap1 [kp-enter]     'newline-and-indent)
+;;(define-key MyMap1  [kp-subtract]   'match-paren)
+;;(global-set-key     [kp-enter]      'framepop-toggle-frame)
+;;(define-key MyMap2  [kp-enter]      'message-elide-region)
+;;(define-key MyMap3  [kp-enter]      'insert-cut-here)
+;;(define-key MyMap1  [kp-add]        'ipause)
 
-(global-set-key       [C-kp-left]     'indent-rigidly-left)
-(global-set-key       [C-kp-right]    'indent-rigidly-right)
-(global-set-key       [C-kp-4]        'indent-rigidly-left)
-(global-set-key       [C-kp-6]        'indent-rigidly-right)
+;;(global-set-key     [C-kp-0]        'goto-last-change)
+;;(global-set-key     [C-kp-subtract] 'fold-dwim-hide-all)
+;;(global-set-key     [C-kp-add]      'fold-dwim-show-all)
+;;(global-set-key     [C-kp-enter]    'fold-dwim-toggle)
 
-;;(global-set-key       [C-kp-0]        'goto-last-change)
-;;(global-set-key       [C-kp-subtract] 'fold-dwim-hide-all)
-;;(global-set-key       [C-kp-add]      'fold-dwim-show-all)
-;;(global-set-key       [C-kp-enter]    'fold-dwim-toggle)
+(global-set-key     [C-kp-left]   'indent-rigidly-left)
+(global-set-key     [C-kp-right]  'indent-rigidly-right)
+(global-set-key     [C-kp-4]      'indent-rigidly-left)
+(global-set-key     [C-kp-6]      'indent-rigidly-right)
 
-(global-set-key       [M-kp-left]  'backward-list)
-(global-set-key       [M-kp-right] 'forward-list)
-(global-set-key       [M-kp-4]     'backward-list)
-(global-set-key       [M-kp-6]     'forward-list)
+(global-set-key     [M-kp-left]  'backward-list)
+(global-set-key     [M-kp-right] 'forward-list)
+(global-set-key     [M-kp-4]     'backward-list)
+(global-set-key     [M-kp-6]     'forward-list)
 
-(global-set-key       [C-M-kp-enter]  'bury-buffer)
+(global-set-key     [C-M-kp-enter]  'bury-buffer)
+
+(global-set-key     [M-kp-2]   'symbol-overlay-put)
+(global-set-key     [M-kp-3]   'symbol-overlay-jump-next)
+(global-set-key     [M-kp-1]   'symbol-overlay-jump-prev)
+(define-key MyMap1  [kp-2]     'symbol-overlay-mode)
+(define-key MyMap2  [kp-2]     'symbol-overlay-remove-all)
+
+;; CAUTION: inside Citrix Light sessions [C-Tab] might be catched by browser
+(global-set-key     [C-tab]    'hippie-expand)
+(global-set-key     [kp-enter] 'hippie-expand)
 
 (global-set-key [S-down-mouse-1] 'imenu)
 (global-set-key [S-down-mouse-2] 'yank-menu)
@@ -95,10 +118,3 @@
 ;; <ctrl-down-mouse-3> does not work, <shift-mouse-3> is already allocated,
 ;; <alt-mouse-3> is not availbale in Citrix session
 (global-set-key [C-S-down-mouse-3] context-menu-entry)
-
-(global-set-key    [M-kp-2] 'symbol-overlay-put)
-(global-set-key    [M-kp-3] 'symbol-overlay-jump-next)
-(global-set-key    [M-kp-1] 'symbol-overlay-jump-prev)
-(define-key MyMap1 "o"      'symbol-overlay-mode)
-(define-key MyMap2 "o"      'symbol-overlay-remove-all)
-
